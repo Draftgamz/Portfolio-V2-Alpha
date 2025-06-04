@@ -12,7 +12,7 @@
 
 <!-- 🛠️ Tech & Tools -->
 ![Editor](https://img.shields.io/badge/Editor-VSCode-blue?logo=visualstudiocode)
-![OS](https://img.shields.io/badge/Developed%20on-Windows%20%7C%20Linux-blue?logo=windows)
+![OS](https://img.shields.io/badge/Developed%20on-Windows-blue?logo=windows)
 ![Glassmorphism](https://img.shields.io/badge/Style-Glassmorphism-blueviolet)
 
 <!-- 🔐 DevOps & CI -->
