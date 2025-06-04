@@ -4,6 +4,7 @@ import { ArrowRight, Download, Github, Linkedin, Sparkles, Zap, Star, Code2, Cof
 import { Button } from "@/components/ui/button"
 import { AnimatedGroup } from "@/components/ui/animated-group"
 import { ScrollIndicator } from "@/components/scroll-indicator"
+import { useEffect, useState } from "react"
 
 const transitionVariants = {
   item: {
@@ -26,6 +27,19 @@ const transitionVariants = {
 }
 
 export function HeroSection() {
+  // Generate random dot styles only on the client
+  const [dotStyles, setDotStyles] = useState<Array<React.CSSProperties>>([])
+
+  useEffect(() => {
+    const styles = Array.from({ length: 12 }).map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 3}s`,
+      animationDuration: `${2 + Math.random() * 2}s`,
+    }))
+    setDotStyles(styles)
+  }, [])
+
   return (
     <main className="relative min-h-screen flex items-center overflow-hidden">
       {/* Enhanced background with multiple layers */}
@@ -61,16 +75,11 @@ export function HeroSection() {
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(12)].map((_, i) => (
+        {dotStyles.map((style, i) => (
           <div
             key={i}
             className="absolute w-2 h-2 bg-white/20 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`,
-            }}
+            style={style}
           />
         ))}
       </div>
